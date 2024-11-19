@@ -1,0 +1,36 @@
+<div class="home">
+  <div class="hero">
+    <div class="container">
+      <h1>Welcome to Fashion Design Academy</h1>
+      <p>Transform your passion for fashion into a successful career with our professional courses</p>
+      <div class="cta-buttons">
+        <a routerLink="/about" class="btn btn-primary">Learn More About Us</a>
+        <a routerLink="/contact" class="btn btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="courses-section">
+    <div class="container">
+      <h2>Our Courses</h2>
+      <div class="courses-grid">
+        <div class="course-card" *ngFor="let course of courses" [routerLink]="['/course', course.id]">
+          <div class="course-image">
+            <img [src]="course.imageUrl" [alt]="course.title">
+          </div>
+          <div class="course-content">
+            <h3>{{ course.title }}</h3>
+            <p>{{ course.description }}</p>
+            <div class="course-meta">
+              <div class="duration">
+                <i class="far fa-clock"></i>
+                {{ course.duration }}
+              </div>
+              <div class="price">{{ course.price }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

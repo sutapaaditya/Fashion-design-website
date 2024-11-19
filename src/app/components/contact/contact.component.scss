@@ -1,0 +1,383 @@
+// Variables
+$primary-color: #ff4081;
+$secondary-color: #3f51b5;
+$text-color: #333;
+$light-gray: #f5f5f5;
+$medium-gray: #e0e0e0;
+$dark-gray: #757575;
+$card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+.contact-page {
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('/assets/images/contact-hero.jpg') center/cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .cards-section {
+    padding: 60px 0;
+    background-color: $light-gray;
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+  }
+
+  // Flip Card Styles
+  .flip-card {
+    perspective: 1500px;
+    height: 600px;
+
+    &:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: $card-shadow;
+    }
+
+    .flip-card-front {
+      background: white;
+    }
+
+    .flip-card-back {
+      background: white;
+      transform: rotateY(180deg);
+    }
+  }
+
+  // Card Content Styles
+  .card-content {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .card-header {
+      text-align: center;
+      margin-bottom: 30px;
+
+      i {
+        font-size: 3rem;
+        color: $primary-color;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        color: $text-color;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Contact Info Styles
+  .contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      text-align: left;
+
+      i {
+        font-size: 1.5rem;
+        color: $primary-color;
+        margin-top: 5px;
+      }
+
+      h3 {
+        color: $text-color;
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+      }
+
+      p {
+        color: $dark-gray;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  // Form Styles
+  .form-group {
+    margin-bottom: 20px;
+
+    .input-group {
+      position: relative;
+      
+      i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $dark-gray;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 12px 12px 12px 40px;
+        border: 1px solid $medium-gray;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: $transition;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
+        }
+      }
+
+      textarea {
+        padding-top: 12px;
+        resize: none;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: $dark-gray;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  // Form Options
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: $dark-gray;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        accent-color: $primary-color;
+      }
+    }
+
+    .forgot-password {
+      color: $primary-color;
+      text-decoration: none;
+      font-size: 0.9rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Buttons
+  .flip-button,
+  .login-button,
+  .send-button {
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: $transition;
+    width: 100%;
+    margin-top: auto;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background: $medium-gray;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    i {
+      font-size: 1.1rem;
+    }
+  }
+
+  // Social Login
+  .social-login {
+    margin: 20px 0;
+    text-align: center;
+
+    p {
+      color: $dark-gray;
+      margin-bottom: 15px;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 30%;
+        height: 1px;
+        background: $medium-gray;
+      }
+
+      &::before { left: 0; }
+      &::after { right: 0; }
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+
+      .social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: $transition;
+
+        &.google {
+          background: #DB4437;
+          color: white;
+          &:hover { background: darken(#DB4437, 10%); }
+        }
+
+        &.facebook {
+          background: #4267B2;
+          color: white;
+          &:hover { background: darken(#4267B2, 10%); }
+        }
+
+        &.twitter {
+          background: #1DA1F2;
+          color: white;
+          &:hover { background: darken(#1DA1F2, 10%); }
+        }
+      }
+    }
+  }
+
+  // Message Card
+  .message-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: $card-shadow;
+    height: 600px;
+
+    .card-content {
+      height: 100%;
+    }
+  }
+
+  // Map Section
+  .map-section {
+    padding: 60px 0;
+    background: white;
+
+    .map-container {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: $card-shadow;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .contact-page {
+    .hero {
+      padding: 60px 0;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .cards-section {
+      padding: 40px 0;
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .flip-card,
+    .message-card {
+      height: 550px;
+    }
+  }
+}

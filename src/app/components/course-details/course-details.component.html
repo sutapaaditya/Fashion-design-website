@@ -1,0 +1,54 @@
+<div class="course-details" *ngIf="course">
+  <div class="hero">
+    <div class="container">
+      <h1>{{ course.title }}</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="course-content">
+      <div class="main-content">
+        <div class="course-image">
+          <img [src]="course.imageUrl" [alt]="course.title">
+        </div>
+        <div class="description">
+          <h2>Course Description</h2>
+          <p>{{ course.description }}</p>
+        </div>
+        <div class="highlights">
+          <h2>Course Highlights</h2>
+          <ul>
+            <li *ngFor="let highlight of course.highlights">{{ highlight }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="info-card">
+          <div class="info-item">
+            <i class="far fa-clock"></i>
+            <div>
+              <h3>Duration</h3>
+              <p>{{ course.duration }}</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-tag"></i>
+            <div>
+              <h3>Price</h3>
+              <p>{{ course.price }}</p>
+            </div>
+          </div>
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!course">
+  <div class="container">
+    <h2>Course Not Found</h2>
+    <p>The course you're looking for doesn't exist.</p>
+    <a routerLink="/" class="back-btn">Back to Courses</a>
+  </div>
+</div>
