@@ -9,17 +9,21 @@ $card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 $transition: all 0.3s ease;
 
 .contact-page {
+  padding-top: 80px; // Account for fixed navigation
+
   .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
                 url('/assets/images/contact-hero.jpg') center/cover;
     color: white;
-    padding: 100px 0;
+    padding: 120px 0;
     text-align: center;
+    margin-bottom: 80px;
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     p {
@@ -27,6 +31,7 @@ $transition: all 0.3s ease;
       max-width: 600px;
       margin: 0 auto;
       opacity: 0.9;
+      line-height: 1.6;
     }
   }
 
@@ -36,348 +41,253 @@ $transition: all 0.3s ease;
     padding: 0 20px;
   }
 
-  .cards-section {
-    padding: 60px 0;
-    background-color: $light-gray;
+  .contact-info {
+    margin-bottom: 80px;
 
-    .cards-grid {
+    .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
-  }
-
-  // Flip Card Styles
-  .flip-card {
-    perspective: 1500px;
-    height: 600px;
-
-    &:hover .flip-card-inner {
-      transform: rotateY(180deg);
+      gap: 30px;
     }
 
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
+    .info-card {
+      background: white;
+      padding: 40px 30px;
       text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 15px;
-      overflow: hidden;
+      border-radius: 10px;
       box-shadow: $card-shadow;
-    }
+      transition: $transition;
 
-    .flip-card-front {
-      background: white;
-    }
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 
-    .flip-card-back {
-      background: white;
-      transform: rotateY(180deg);
-    }
-  }
-
-  // Card Content Styles
-  .card-content {
-    padding: 30px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    .card-header {
-      text-align: center;
-      margin-bottom: 30px;
-
-      i {
-        font-size: 3rem;
-        color: $primary-color;
-        margin-bottom: 15px;
+        .icon {
+          background: $primary-color;
+          color: white;
+        }
       }
 
-      h2 {
-        color: $text-color;
-        font-size: 1.8rem;
-        font-weight: 600;
-      }
-    }
-  }
-
-  // Contact Info Styles
-  .contact-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      text-align: left;
-
-      i {
-        font-size: 1.5rem;
+      .icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: rgba($primary-color, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
         color: $primary-color;
-        margin-top: 5px;
+        transition: $transition;
       }
 
       h3 {
         color: $text-color;
-        margin-bottom: 5px;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        font-weight: 600;
       }
 
       p {
         color: $dark-gray;
-        margin: 0;
-        font-size: 1rem;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
         line-height: 1.5;
-      }
-    }
-  }
 
-  // Form Styles
-  .form-group {
-    margin-bottom: 20px;
-
-    .input-group {
-      position: relative;
-      
-      i {
-        position: absolute;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: $dark-gray;
-      }
-
-      input, textarea {
-        width: 100%;
-        padding: 12px 12px 12px 40px;
-        border: 1px solid $medium-gray;
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: $transition;
-
-        &:focus {
-          outline: none;
-          border-color: $primary-color;
-          box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
-        }
-      }
-
-      textarea {
-        padding-top: 12px;
-        resize: none;
-      }
-
-      .toggle-password {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        color: $dark-gray;
-        cursor: pointer;
-        padding: 0;
-
-        &:hover {
-          color: $primary-color;
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }
   }
 
-  // Form Options
-  .form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  .contact-form {
+    padding: 80px 0;
+    background-color: $light-gray;
 
-    .remember-me {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: $dark-gray;
-      cursor: pointer;
-
-      input[type="checkbox"] {
-        accent-color: $primary-color;
-      }
-    }
-
-    .forgot-password {
-      color: $primary-color;
-      text-decoration: none;
-      font-size: 0.9rem;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  // Buttons
-  .flip-button,
-  .login-button,
-  .send-button {
-    background: $primary-color;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: $transition;
-    width: 100%;
-    margin-top: auto;
-
-    &:hover {
-      background: darken($primary-color, 10%);
-      transform: translateY(-2px);
-    }
-
-    &:disabled {
-      background: $medium-gray;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    i {
-      font-size: 1.1rem;
-    }
-  }
-
-  // Social Login
-  .social-login {
-    margin: 20px 0;
-    text-align: center;
-
-    p {
-      color: $dark-gray;
-      margin-bottom: 15px;
-      position: relative;
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        width: 30%;
-        height: 1px;
-        background: $medium-gray;
-      }
-
-      &::before { left: 0; }
-      &::after { right: 0; }
-    }
-
-    .social-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-
-      .social-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: $transition;
-
-        &.google {
-          background: #DB4437;
-          color: white;
-          &:hover { background: darken(#DB4437, 10%); }
-        }
-
-        &.facebook {
-          background: #4267B2;
-          color: white;
-          &:hover { background: darken(#4267B2, 10%); }
-        }
-
-        &.twitter {
-          background: #1DA1F2;
-          color: white;
-          &:hover { background: darken(#1DA1F2, 10%); }
-        }
-      }
-    }
-  }
-
-  // Message Card
-  .message-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: $card-shadow;
-    height: 600px;
-
-    .card-content {
-      height: 100%;
-    }
-  }
-
-  // Map Section
-  .map-section {
-    padding: 60px 0;
-    background: white;
-
-    .map-container {
+    .form-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      background: white;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: $card-shadow;
+    }
+
+    .form-content {
+      padding: 50px;
+
+      h2 {
+        color: $text-color;
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+
+        label {
+          display: block;
+          color: $text-color;
+          margin-bottom: 8px;
+          font-weight: 500;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 12px 15px;
+          border: 2px solid $medium-gray;
+          border-radius: 8px;
+          font-size: 1rem;
+          transition: $transition;
+
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+          }
+
+          &::placeholder {
+            color: $dark-gray;
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 120px;
+        }
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+          background: darken($primary-color, 10%);
+        }
+
+        &:disabled {
+          background: $medium-gray;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .form-image {
+      position: relative;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($secondary-color, 0.85);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        color: white;
+        text-align: center;
+
+        h3 {
+          font-size: 2rem;
+          margin-bottom: 20px;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+
+  .map-section {
+    iframe {
+      display: block;
+      width: 100%;
+      height: 450px;
+      border: none;
     }
   }
 }
 
 // Responsive Design
+@media (max-width: 992px) {
+  .contact-page {
+    .hero {
+      padding: 100px 0;
+
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .contact-form {
+      .form-container {
+        grid-template-columns: 1fr;
+      }
+
+      .form-image {
+        display: none;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .contact-page {
     .hero {
-      padding: 60px 0;
+      padding: 80px 0;
+      margin-bottom: 60px;
 
       h1 {
         font-size: 2.5rem;
       }
 
       p {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
     }
 
-    .cards-section {
-      padding: 40px 0;
+    .contact-info {
+      margin-bottom: 60px;
 
-      .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+      .info-card {
+        padding: 30px 20px;
       }
     }
 
-    .flip-card,
-    .message-card {
-      height: 550px;
+    .contact-form {
+      padding: 60px 0;
+
+      .form-content {
+        padding: 30px;
+
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
     }
   }
 }

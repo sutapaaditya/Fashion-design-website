@@ -1,0 +1,42 @@
+<div class="courses-page">
+  <div class="courses-hero">
+    <div class="hero-content">
+      <h1>Transform Your Fashion Dreams into Reality</h1>
+      <p>Discover our comprehensive range of fashion design courses taught by industry experts</p>
+    </div>
+  </div>
+
+  <section class="courses-section">
+    <div class="courses-grid">
+      @for (course of courses; track course.id) {
+        <div class="course-card">
+          <div class="course-image">
+            <img [src]="course.imageUrl" [alt]="course.title">
+            <span class="course-category">{{ course.category }}</span>
+          </div>
+          <div class="course-content">
+            <h3>{{ course.title }}</h3>
+            <p>{{ course.description }}</p>
+            <div class="course-details">
+              <span class="detail-item">
+                <i class="fas fa-clock"></i>
+                {{ course.duration }}
+              </span>
+              <span class="detail-item">
+                <i class="fas fa-users"></i>
+                {{ course.students }} students
+              </span>
+            </div>
+            <div class="course-footer">
+              <span class="price">{{ course.price }}</span>
+              <a [routerLink]="['/courses', course.id]" class="enroll-btn">
+                <i class="fas fa-arrow-right"></i>
+                Enroll Now
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

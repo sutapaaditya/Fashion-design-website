@@ -1,0 +1,13 @@
+Please add the following images to this directory:
+
+1. hero-bg.jpg - A fashion design workspace or studio image
+2. course-1.jpg - Fashion design fundamentals class image
+3. course-2.jpg - Pattern making workshop image
+4. course-3.jpg - Digital fashion design software image
+5. success-story-1.jpg - Professional female fashion designer
+6. success-story-2.jpg - Fashion entrepreneur in studio
+7. stats-bg.jpg - Fashion show or runway image
+8. news-1.jpg - Fashion week event image
+9. news-2.jpg - Workshop or training session image
+
+You can use royalty-free images from websites like Unsplash or Pexels.

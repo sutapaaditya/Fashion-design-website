@@ -1,0 +1,47 @@
+<section class="fashion-gallery">
+  <div class="container">
+    <h1 class="section-title">Fashion Gallery</h1>
+    
+    <!-- Category Filter -->
+    <div class="category-filter">
+      <button 
+        class="filter-btn" 
+        [class.active]="selectedCategory === 'all'"
+        (click)="filterByCategory('all')">
+        All Designs
+      </button>
+      <button 
+        *ngFor="let category of categories"
+        class="filter-btn"
+        [class.active]="selectedCategory === category"
+        (click)="filterByCategory(category)">
+        {{category}}
+      </button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      <div *ngFor="let item of filteredItems" class="gallery-item">
+        <div class="item-image">
+          <img [src]="item.imageUrl" 
+               [alt]="item.name"
+               (error)="handleImageError($event)"
+               loading="lazy">
+          <div class="item-overlay">
+            <div class="item-details">
+              <h3>{{item.name}}</h3>
+              <p class="designer">{{item.designer}}</p>
+              <p class="description">{{item.description}}</p>
+              <p class="price">{{item.price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="item-info">
+          <h3>{{item.name}}</h3>
+          <p class="category">{{item.category}}</p>
+          <p class="price">{{item.price}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

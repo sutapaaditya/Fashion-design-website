@@ -1,175 +1,215 @@
+// Variables
+$primary-color: #ff4081;
+$secondary-color: #3f51b5;
+$dark-bg: #1a1a1a;
+$darker-bg: #141414;
+$text-light: #ffffff;
+$text-muted: rgba(255, 255, 255, 0.7);
+$border-color: rgba(255, 255, 255, 0.1);
+$transition: all 0.3s ease;
+
 .footer {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  color: #ffffff;
-  padding: 4rem 0 2rem;
+  background: $dark-bg;
+  color: $text-light;
   font-family: 'Poppins', sans-serif;
+  
+  .footer-top {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid $border-color;
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-bottom: 3rem;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-  }
-
-  h3 {
-    color: #ff4081;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 0.5rem;
-
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 40px;
-      height: 2px;
-      background: #ff4081;
-      transition: width 0.3s ease;
-
-      @media (max-width: 768px) {
-        left: 50%;
-        transform: translateX(-50%);
-      }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    &:hover:after {
-      width: 60px;
-    }
-  }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
 
-  .contact-info {
-    p {
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      color: #e0e0e0;
-      transition: color 0.3s ease;
-
-      @media (max-width: 768px) {
-        justify-content: center;
+      @media (max-width: 992px) {
+        grid-template-columns: 1fr 1fr;
       }
 
-      &:hover {
-        color: #ffffff;
-      }
-
-      i {
-        color: #ff4081;
-        margin-right: 1rem;
-        font-size: 1.2rem;
-        width: 20px;
-        text-align: center;
+      @media (max-width: 576px) {
+        grid-template-columns: 1fr;
       }
     }
   }
 
-  .quick-links {
+  .footer-section {
+    &.about {
+      .logo {
+        margin-bottom: 20px;
+
+        h2 {
+          font-size: 28px;
+          font-weight: 700;
+          margin: 0;
+          color: $text-light;
+        }
+
+        span {
+          font-size: 16px;
+          color: $primary-color;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+      }
+
+      .description {
+        color: $text-muted;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      .contact-info {
+        .contact-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+
+          i {
+            color: $primary-color;
+            font-size: 18px;
+            margin-right: 15px;
+            width: 20px;
+          }
+
+          p {
+            color: $text-muted;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    h3 {
+      color: $text-light;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 2px;
+        background: $primary-color;
+      }
+    }
+
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
 
       li {
-        margin-bottom: 0.8rem;
+        margin-bottom: 12px;
 
         a {
-          color: #e0e0e0;
+          color: $text-muted;
           text-decoration: none;
-          transition: all 0.3s ease;
-          position: relative;
-          padding-left: 1.5rem;
+          display: flex;
+          align-items: center;
+          transition: $transition;
 
-          &:before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #ff4081;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
+          i {
+            margin-right: 10px;
+            font-size: 14px;
+            color: $primary-color;
           }
 
           &:hover {
-            color: #ffffff;
-            padding-left: 2rem;
-
-            &:before {
-              opacity: 1;
-              transform: translateX(0);
-            }
+            color: $text-light;
+            transform: translateX(5px);
           }
         }
       }
     }
-  }
 
-  .social-links {
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-
-      @media (max-width: 768px) {
-        justify-content: center;
+    &.newsletter {
+      p {
+        color: $text-muted;
+        margin-bottom: 20px;
+        line-height: 1.6;
       }
 
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-        text-decoration: none;
-        transition: all 0.3s ease;
+      .form-group {
         position: relative;
-        overflow: hidden;
+        margin-bottom: 20px;
 
-        &:before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
+        input {
           width: 100%;
-          height: 100%;
-          background: #ff4081;
-          transform: scale(0);
-          transition: transform 0.3s ease;
-          border-radius: 50%;
-          z-index: 1;
-        }
+          padding: 12px 50px 12px 15px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid $border-color;
+          border-radius: 25px;
+          color: $text-light;
+          font-size: 14px;
+          transition: $transition;
 
-        i {
-          position: relative;
-          z-index: 2;
-          transition: transform 0.3s ease;
-        }
-
-        &:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 5px 15px rgba(255, 64, 129, 0.3);
-
-          &:before {
-            transform: scale(1);
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+            background: rgba(255, 255, 255, 0.1);
           }
 
-          i {
-            transform: scale(1.2);
+          &::placeholder {
+            color: $text-muted;
+          }
+        }
+
+        button {
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: $primary-color;
+          border: none;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          color: $text-light;
+          cursor: pointer;
+          transition: $transition;
+
+          &:hover {
+            background: darken($primary-color, 10%);
+          }
+
+          &:disabled {
+            background: rgba($primary-color, 0.5);
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+
+        a {
+          width: 35px;
+          height: 35px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $text-light;
+          text-decoration: none;
+          transition: $transition;
+
+          &:hover {
+            background: $primary-color;
+            transform: translateY(-3px);
           }
         }
       }
@@ -177,39 +217,53 @@
   }
 
   .footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: $darker-bg;
+    padding: 20px 0;
 
-    p {
-      color: #888;
-      font-size: 0.9rem;
-      margin: 0;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-  }
 
-  // Custom animation for links
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-  // Apply animations to elements
-  .contact-info p,
-  .quick-links li,
-  .social-icons a {
-    animation: fadeIn 0.5s ease forwards;
-    opacity: 0;
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
 
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{$i * 0.1}s;
+      p {
+        color: $text-muted;
+        margin: 0;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: 768px) {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        a {
+          color: $text-muted;
+          text-decoration: none;
+          font-size: 14px;
+          transition: $transition;
+
+          &:hover {
+            color: $text-light;
+          }
+        }
       }
     }
   }

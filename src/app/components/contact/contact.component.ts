@@ -14,6 +14,7 @@ export class ContactComponent {
     name: '',
     email: '',
     phone: '',
+    subject: '',
     message: ''
   };
 
@@ -46,6 +47,7 @@ export class ContactComponent {
       name: '',
       email: '',
       phone: '',
+      subject: '',
       message: ''
     };
   }

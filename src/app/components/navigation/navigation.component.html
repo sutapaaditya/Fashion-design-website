@@ -1,0 +1,71 @@
+<header class="main-nav" [class.nav-open]="isMenuOpen">
+  <div class="container">
+    <nav class="nav-wrapper">
+      <!-- Logo Section -->
+      <div class="logo">
+        <a routerLink="/" aria-label="Fashion Design Academy Home">
+          <div class="logo-container">
+            <i class="fas fa-crown"></i>
+            <div class="logo-text">
+              <span class="brand-name">Elegant</span>
+              <span class="brand-tagline">Fashion Academy</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="menu-toggle" 
+              (click)="toggleMenu()" 
+              [attr.aria-expanded]="isMenuOpen"
+              aria-label="Toggle navigation menu">
+        <i class="fas" [class.fa-bars]="!isMenuOpen" [class.fa-xmark]="isMenuOpen"></i>
+      </button>
+
+      <!-- Navigation Links -->
+      <div class="nav-content" [class.show]="isMenuOpen">
+        <div class="nav-links">
+          <a routerLink="/" 
+             routerLinkActive="active" 
+             [routerLinkActiveOptions]="{exact: true}"
+             (click)="toggleMenu()">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a routerLink="/courses" 
+             routerLinkActive="active"
+             (click)="toggleMenu()">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Courses</span>
+          </a>
+          <a routerLink="/gallery" 
+             routerLinkActive="active"
+             (click)="toggleMenu()">
+            <i class="fas fa-tshirt"></i>
+            <span>Gallery</span>
+          </a>
+          <a routerLink="/about" 
+             routerLinkActive="active"
+             (click)="toggleMenu()">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+          </a>
+          <a routerLink="/contact" 
+             routerLinkActive="active"
+             (click)="toggleMenu()">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="nav-cta">
+          <a routerLink="/courses" class="cta-button" (click)="toggleMenu()">
+            <span>Enroll Now</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

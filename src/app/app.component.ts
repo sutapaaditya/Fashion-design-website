@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
@@ -10,22 +10,17 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    HeaderComponent,
+    NavigationComponent,
     FooterComponent
   ],
   template: `
-    <app-header></app-header>
+    <app-navigation></app-navigation>
     <main>
       <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>
   `,
-  styles: [`
-    main {
-      min-height: calc(100vh - 160px); /* Adjust based on header/footer height */
-      padding: 20px 0;
-    }
-  `]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'fashion-design';
